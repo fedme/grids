@@ -1,2 +1,2 @@
-# ALM
-ALM Ionic port
+# Grids
+Gridsearch ionic wrapper
