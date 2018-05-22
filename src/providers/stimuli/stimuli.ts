@@ -8,6 +8,8 @@ import { SCENARIOS_SHORT } from './scenarios-short';
 @Injectable()
 export class Stimuli {
 
+  versionNumber: string = "1.0.4";
+
   public langChangedEvent: EventEmitter<string> = new EventEmitter();
   lang: string = "en";
 
