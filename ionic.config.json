@@ -1,6 +1,6 @@
 {
-  "name": "halo",
-  "app_id": "",
+  "name": "grids",
+  "app_id": "fe44c716",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
