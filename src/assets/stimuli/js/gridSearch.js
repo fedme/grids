@@ -113,6 +113,12 @@ function assignScenarioSkipRegistration() {
   } else {
     var initialEnvs = roughKernel; // variable from json file
   }
+
+  // Override environment
+  if (localStorage.getItem("isrc-grids-smoothOnly") == "true") {
+    var initialEnvs = smoothKernel; // variable from json file
+  } 
+
   for (i = 0; i <= trials; i++) {
     environmentList[envOrder[i]] = initialEnvs[envOrder[i]];
   }

@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ModalController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController, ModalController, Platform, Alert } from 'ionic-angular';
 import { Stimuli, Data } from '../../providers/providers';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,11 +13,20 @@ import { TranslateService } from '@ngx-translate/core';
 export class RegistrationPage {
 
   lang: string = "en";
+  smoothOnly: boolean = true;
   availableLangs: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private stimuli: Stimuli, private data: Data, private toastCtrl: ToastController,
-    private modalCtrl: ModalController, private platform: Platform, private translate: TranslateService) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private stimuli: Stimuli, 
+    private data: Data, 
+    private toastCtrl: ToastController,
+    private modalCtrl: ModalController, 
+    private platform: Platform, 
+    private translate: TranslateService,
+    private alertCtrl: AlertController
+  ) {
       
       // Parse available langs
       this.availableLangs = this.translate.langs;
@@ -32,6 +41,11 @@ export class RegistrationPage {
         this.lang = localStorage.getItem('lang');
       }
 
+      // Get smoothOnly localStorage
+      if (localStorage.getItem('isrc-grids-smoothOnly') != null && localStorage.getItem('isrc-grids-smoothOnly') == 'true') {
+        this.smoothOnly = true;
+      }
+
   }
 
   ionViewDidLoad() {
@@ -43,8 +57,6 @@ export class RegistrationPage {
   }
 
   handleRegistration() {
-    if (this.validateRegistration()) {
-
       // set Language
       this.stimuli.setLang(this.lang);
       localStorage.setItem('lang', this.lang);
@@ -57,25 +69,41 @@ export class RegistrationPage {
       localStorage.setItem("isrc-embedded-mode-gender", this.stimuli.participant.gender);
       localStorage.setItem("isrc-embedded-mode-age", this.stimuli.participant.age.toString());
       localStorage.setItem("isrc-embedded-mode-grade", this.stimuli.participant.grade.toString());
+      localStorage.setItem("isrc-grids-smoothOnly", this.smoothOnly ? "true" : "false");
    
       // initialize stimuli
       this.stimuli.initializeConditions();
       this.navCtrl.setRoot('StimuliPage');
-    }
   }
 
   validateRegistration() {
     const ageNull = this.stimuli.participant.age == null;
     const genderNull = this.stimuli.participant.gender == null;
     if (ageNull || genderNull) {
-      let toast = this.toastCtrl.create({
-        message: 'Please fill all the required fields',
-        duration: 3000
+      let alert = this.alertCtrl.create({
+        title: 'Proceed without age/gender?',
+        message: 'Are you sure you want to proceed without entering age/gender?',
+        buttons: [
+          {
+            text: 'Yes',
+            handler: () => {
+              this.stimuli.participant.age = 0;
+              this.stimuli.participant.grade = 0;
+              this.handleRegistration();
+            }
+          },
+          {
+            text: 'No',
+            role: 'cancel',
+            handler: () => {}
+          }
+        ]
       });
-      toast.present();
-      return false;
+      alert.present();
     }
-    return true;
+    else {
+      this.handleRegistration();
+    }
   }
 
   showRecords() {
