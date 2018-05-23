@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, AlertController, ModalController, Platform, Alert } from 'ionic-angular';
-import { Pro } from '@ionic/pro';
 import { Stimuli, Data } from '../../providers/providers';
 import { TranslateService } from '@ngx-translate/core';
 

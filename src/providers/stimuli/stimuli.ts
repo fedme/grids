@@ -1,6 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { Pro } from '@ionic/pro';
 import { Utils } from '../utils/utils';
 import { Participant } from '../../models/participant';
 import { APP_INFO } from './app-info';

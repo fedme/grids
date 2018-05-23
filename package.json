@@ -1,6 +1,6 @@
 {
   "name": "grids",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Federico Meini",
   "homepage": "https://isearchlab.org",
   "private": true,
@@ -68,7 +68,7 @@
         "APP_ID": "fe44c716",
         "CHANNEL_NAME": "Production",
         "UPDATE_METHOD": "auto",
-        "WARN_DEBUG": "true",
+        "WARN_DEBUG": "false",
         "UPDATE_API": "https://api.ionicjs.com",
         "MAX_STORE": "2"
       }
