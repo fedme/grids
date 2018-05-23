@@ -3,8 +3,6 @@ import { Platform } from 'ionic-angular';
 import { Utils } from '../utils/utils';
 import { Participant } from '../../models/participant';
 import { APP_INFO } from './app-info';
-import { SCENARIOS } from './scenarios';
-import { SCENARIOS_SHORT } from './scenarios-short';
 
 @Injectable()
 export class Stimuli {
@@ -22,11 +20,6 @@ export class Stimuli {
   participant: Participant;
   conditionCounterOverride: number = null;
   runInBrowser: boolean = false;
-
-  // scenarios
-  scenarios: any;
-  scenarioIndex: number = -1;
-  ratings: number[] = [];
   
   constructor(
     private utils: Utils, 
@@ -47,8 +40,6 @@ export class Stimuli {
 
   initialize() {
     this.shortVersion = false; // TODO
-    this.scenarioIndex = -1;
-    this.ratings = [];
     this.initialTimestamp = Date.now(); 
     this.participant = new Participant("anonymous-" + this.utils.getCounterValue());
   }
@@ -58,61 +49,6 @@ export class Stimuli {
       this.shortVersion = true;
     }
     this.initialTimestamp = Date.now(); 
-    this.pickCondition();
-    this.setupScenarios();
-  }
-
-  pickCondition() {
-    // Pick a condition
-    if (this.shortVersion) {
-      this.condition = this.utils.pickOneConditionShort();
-    }
-    else {
-      this.condition = this.utils.pickFirstCondition();
-    }
-    this.conditionId = this.condition['id'];
-    console.log('Picked condition', this.condition);
-  }
-
-  setupScenarios() {
-
-    // scenarios present fixed order 2 4 1 6 7 8 5 3
-    this.scenarios = [];
-    let scenariosIds = [2, 4, 1, 6, 7, 8, 5, 3];
-    let allScenarios = SCENARIOS;
-
-    if (this.shortVersion) {
-      scenariosIds = [1, 2];
-      allScenarios = SCENARIOS_SHORT;
-    }
-
-    for (let id of scenariosIds) {
-      this.scenarios.push({
-        "raw": allScenarios[id-1],
-        "question_id": this.condition['s_' + id],
-        "question": allScenarios[id-1]['questions'][this.condition['s_' + id] - 1]
-      });
-    }
-
-    console.log("[Stimuli] scenarios", this.scenarios);
-
-  }
-
-  get scenario(): any {
-    if (this.scenarioIndex < 0) return null;
-    return this.scenarios[this.scenarioIndex];
-  }
-
-  areThereMoreScenarios() : boolean {
-    return this.scenarioIndex < this.scenarios.length - 1;
-  }
-
-  goToNextScenario() {
-    this.scenarioIndex++;
-  }
-
-  logRating(rating: number) {
-    this.ratings.push(rating);
   }
 
 

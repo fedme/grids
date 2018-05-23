@@ -133,7 +133,6 @@ export class RegistrationPage {
         }
         else if (singleURLParam[0] == "condition"){
           this.stimuli.conditionCounterOverride = parseInt(singleURLParam[1]);
-          this.stimuli.pickCondition();
           console.log("[param][conditionCounterOverride]", parseInt(singleURLParam[1]));
           console.log( this.stimuli.conditionCounterOverride);
         }

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
-import { AskerMonsterComponent } from './asker-monster/asker-monster';
 
 @NgModule({
-	declarations: [AskerMonsterComponent],
+	declarations: [],
 	imports: [
 		IonicModule
 	],
-	exports: [AskerMonsterComponent]
+	exports: []
 })
 export class ComponentsModule {}
