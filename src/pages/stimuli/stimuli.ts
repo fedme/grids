@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Stimuli, Data } from '../../providers/providers';
+import { Data } from '../../providers/providers';
 
 
 @IonicPage()
@@ -13,8 +13,11 @@ export class StimuliPage {
   nextConfirmed: boolean = false;
   endCheckInterval: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private stimli: Stimuli, private data: Data) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private data: Data
+  ) {
     
     this.endCheckInterval = setInterval(() => {
       this.checkEnded();

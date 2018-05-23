@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController, ModalController, Platform, Alert } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { Stimuli, Data } from '../../providers/providers';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -20,10 +20,8 @@ export class RegistrationPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private stimuli: Stimuli, 
-    private data: Data, 
-    private toastCtrl: ToastController,
-    private modalCtrl: ModalController, 
-    private platform: Platform, 
+    private data: Data,
+    private modalCtrl: ModalController,
     private translate: TranslateService,
     private alertCtrl: AlertController
   ) {

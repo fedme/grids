@@ -59,17 +59,8 @@ export class Data {
     // calculate exp duration
     const duration = Math.floor(Date.now() - this.stimuli.initialTimestamp);
 
-    // build date and time strings
-    const currentdate = new Date();
-    const day = ("0" + currentdate.getDate()).slice(-2);
-    const month = ("0" + (currentdate.getMonth() + 1)).slice(-2);
-    const year = currentdate.getFullYear();
-    const dateString = day + "/" + month + "/" + year;
-    const timeString = currentdate.getHours().toFixed(2) + ":" + currentdate.getMinutes().toFixed(2);
-
     // data map
     let data = new Map();
-    let i, j = 0;
 
     // save participant data
     data.set("participant_code", this.stimuli.participant.code);
@@ -79,7 +70,8 @@ export class Data {
     data.set("participant_gender", this.stimuli.participant.gender);
 
     // save session data
-    data.set("session_time", timeString);
+    data.set("session_datetime", Date.now());
+    data.set("session_datetime_human", Date.now().toLocaleString());
     data.set("session_duration", duration);
     data.set("data", JSON.parse(localStorage.getItem('isrc-embedded-mode-data')));
 
