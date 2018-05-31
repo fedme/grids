@@ -2,12 +2,12 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Utils } from '../utils/utils';
 import { Participant } from '../../models/participant';
-import { APP_INFO } from './app-info';
+import { AppInfo } from './app-info';
 
 @Injectable()
 export class Stimuli {
   
-  appInfo: any = APP_INFO;
+  appInfo: AppInfo = AppInfo;
 
   public langChangedEvent: EventEmitter<string> = new EventEmitter();
   lang: string = "en";
