@@ -1,8 +1,8 @@
 {
   "name": "grids",
-  "app_id": "fe44c716",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "pro_id": "fe44c716"
 }
