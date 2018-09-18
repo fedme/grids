@@ -26,7 +26,7 @@ export class Stimuli {
     private platform: Platform
   ) {
     console.log('Hello Stimuli Provider');
-    this.participant = new Participant("anonymous-" + this.utils.getCounterValue());
+    this.participant = new Participant("");
     //this.runInBrowser = this.platform.is('core') || this.platform.is('mobileweb'); TODO: not detecting windows UWA
     this.runInBrowser = false
     console.log("You are running", this.platform)
@@ -41,7 +41,7 @@ export class Stimuli {
   initialize() {
     this.shortVersion = false; // TODO
     this.initialTimestamp = Date.now(); 
-    this.participant = new Participant("anonymous-" + this.utils.getCounterValue());
+    this.participant = new Participant("");
   }
 
   initializeConditions(isShortVersion: boolean = false) {
