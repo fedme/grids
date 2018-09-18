@@ -53,10 +53,11 @@ export class Stimuli {
 
 
   // TODO: age groups
-  getParticipantAgeGroup() {
-    if (this.participant.age >= 18) return 18;
-    return this.participant.age;
+  getParticipantAgeGroup(age: number): string {
+    if (this.participant.age >= 18) return "18";
+    return this.participant.age + "";
   }
+
 
   setLang(langCode: string) {
     this.langChangedEvent.emit(langCode);

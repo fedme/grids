@@ -59,6 +59,9 @@ export class RegistrationPage {
       this.stimuli.setLang(this.lang);
       localStorage.setItem('lang', this.lang);
 
+      // Set additional participant props
+      this.stimuli.participant.ageGroup = this.stimuli.getParticipantAgeGroup(this.stimuli.participant.age);
+
       // Embedded stimuli
       localStorage.setItem("isrc-embedded-mode", "true");
       localStorage.setItem("isrc-embedded-mode-ended", null);
