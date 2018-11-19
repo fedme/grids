@@ -117,6 +117,7 @@ function assignScenarioSkipRegistration() {
   // Override environment
   if (localStorage.getItem("isrc-grids-smoothOnly") == "true") {
     var initialEnvs = smoothKernel; // variable from json file
+    condition = 0;
   } 
 
   for (i = 0; i <= trials; i++) {
