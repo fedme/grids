@@ -31,6 +31,8 @@ var fullurl = document.location.href, //url of incoming MTurk worker
   colors = ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'],
   heatmapColor = d3.scale.linear().domain(d3.range(0, 50, 50.0 / (colors.length - 1))).range(colors),
   youngKidsVersion,
+  overallScore = 0,
+  overallMax = 5000, // TODO: how to compute this value???
   testerNotes = {};
 
 //data collectors for search history
@@ -424,10 +426,15 @@ function onCellTapped(cell) {
   // update score
   scorecurrent = Math.round(cell.rescaledValue);
   scoretotal[trialCounter] = scoretotal[trialCounter] + scorecurrent;
+  overallScore += scorecurrent;
   reward = rewardCum(scoretotal);
   roundScore = performanceScore(scoretotal[trialCounter], scale[trialCounter]);
   change('scoretotal', "Punktzahl: " + scoretotal[trialCounter]);
-  
+
+  // update urn background
+  var urn = document.getElementById('urn');
+  var bgPerc = Math.floor(overallScore / overallMax * 100);
+  urn.style.background = `linear-gradient(to top, #e7bd00 ${bgPerc}%, #ffffff ${bgPerc}%)`;
 
   
   // CASE: first (demo) trial

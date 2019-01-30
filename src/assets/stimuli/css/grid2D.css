@@ -60,6 +60,15 @@ body.youngKidsVersion .highlight {
   border-color: black;
 }
 
+#urn {
+  margin-top: 70px;
+  height: 400px;
+  width: 90px;
+  border: 2px solid black;
+  border-top-width: 0px;
+  background: #ffffff;
+}
+
 
 
 
