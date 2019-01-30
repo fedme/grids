@@ -36,9 +36,32 @@
   border: 3px solid lightgrey;
 }
 
-#grid.notext td {
+
+
+
+
+/* 
+*   YOUNG KIDS VERSION
+*/
+body.youngKidsVersion #grid td {
   color: transparent !important;
 }
+
+body.youngKidsVersion #stars {
+  display: none !important;
+}
+
+body:not(.youngKidsVersion) #starUrn {
+  display: none !important;
+}
+
+body.youngKidsVersion .highlight {
+  color: transparent !important;
+  border-color: black;
+}
+
+
+
 
 
 

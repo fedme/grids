@@ -13,8 +13,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class RegistrationPage {
 
   lang: string = "en";
-  smoothOnly: boolean = true;
-  youngKidsVersion: boolean = false;
+  smoothOnly: boolean;
+  youngKidsVersion: boolean;
   availableLangs: string[];
 
   constructor(
@@ -41,11 +41,13 @@ export class RegistrationPage {
       }
 
       // Get smoothOnly from localStorage
+      this.smoothOnly = false;
       if (localStorage.getItem('isrc-grids-smoothOnly') != null && localStorage.getItem('isrc-grids-smoothOnly') == 'true') {
         this.smoothOnly = true;
       }
 
       // Get youngKidsVersion from localStorage
+      this.youngKidsVersion = false;
       if (localStorage.getItem('isrc-grids-youngKidsVersion') != null && localStorage.getItem('isrc-grids-youngKidsVersion') == 'true') {
         this.youngKidsVersion = true;
       }

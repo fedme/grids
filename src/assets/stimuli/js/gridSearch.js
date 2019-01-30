@@ -99,6 +99,9 @@ function assignScenarioSkipRegistration() {
   grade = localStorage.getItem("isrc-embedded-mode-grade");
 
   youngKidsVersion = localStorage.getItem("isrc-grids-youngKidsVersion") == "true";
+  if (youngKidsVersion) {
+    document.body.classList.add("youngKidsVersion");
+  }
 
   var counter = 0;
   if (age <= 9) {
@@ -290,10 +293,6 @@ function createGrid() {
   table.setAttribute("id", "grid");
 
   table.setAttribute("class", "grid");
-
-  // Hide text if young kids version
-  if (youngKidsVersion)
-    table.setAttribute("class", "grid notext");
 
   for (var y = 0; y < HEIGHT; y++) {
     var tr = document.createElement("tr");
