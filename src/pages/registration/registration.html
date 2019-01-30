@@ -69,6 +69,11 @@
               </ion-item>
 
               <ion-item>
+                <ion-label>Young kids version</ion-label>
+                <ion-checkbox [(ngModel)]="youngKidsVersion" name="youngKidsVersion"></ion-checkbox>
+              </ion-item>
+
+              <ion-item>
                 <ion-label>Language</ion-label>
                 <ion-select [(ngModel)]="lang" name="lang">
                   <ion-option *ngFor="let lang of availableLangs" value="{{lang}}">{{lang}}</ion-option>

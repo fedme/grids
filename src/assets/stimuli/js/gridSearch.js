@@ -30,6 +30,7 @@ var fullurl = document.location.href, //url of incoming MTurk worker
   //Color parameters for heatmap
   colors = ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'],
   heatmapColor = d3.scale.linear().domain(d3.range(0, 50, 50.0 / (colors.length - 1))).range(colors),
+  youngKidsVersion,
   testerNotes = {};
 
 //data collectors for search history
@@ -96,6 +97,8 @@ function assignScenarioSkipRegistration() {
   gender = localStorage.getItem("isrc-embedded-mode-gender");
   age = localStorage.getItem("isrc-embedded-mode-age");
   grade = localStorage.getItem("isrc-embedded-mode-grade");
+
+  youngKidsVersion = localStorage.getItem("isrc-grids-youngKidsVersion") == "true";
 
   var counter = 0;
   if (age <= 9) {
@@ -285,7 +288,12 @@ function createGrid() {
 
   var table = document.createElement("table");
   table.setAttribute("id", "grid");
+
   table.setAttribute("class", "grid");
+
+  // Hide text if young kids version
+  if (youngKidsVersion)
+    table.setAttribute("class", "grid notext");
 
   for (var y = 0; y < HEIGHT; y++) {
     var tr = document.createElement("tr");

@@ -36,6 +36,10 @@
   border: 3px solid lightgrey;
 }
 
+#grid.notext td {
+  color: transparent !important;
+}
+
 
 
 #gridDiv {

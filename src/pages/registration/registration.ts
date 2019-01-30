@@ -14,6 +14,7 @@ export class RegistrationPage {
 
   lang: string = "en";
   smoothOnly: boolean = true;
+  youngKidsVersion: boolean = false;
   availableLangs: string[];
 
   constructor(
@@ -39,9 +40,14 @@ export class RegistrationPage {
         this.lang = localStorage.getItem('lang');
       }
 
-      // Get smoothOnly localStorage
+      // Get smoothOnly from localStorage
       if (localStorage.getItem('isrc-grids-smoothOnly') != null && localStorage.getItem('isrc-grids-smoothOnly') == 'true') {
         this.smoothOnly = true;
+      }
+
+      // Get youngKidsVersion from localStorage
+      if (localStorage.getItem('isrc-grids-youngKidsVersion') != null && localStorage.getItem('isrc-grids-youngKidsVersion') == 'true') {
+        this.youngKidsVersion = true;
       }
 
   }
@@ -71,6 +77,7 @@ export class RegistrationPage {
       localStorage.setItem("isrc-embedded-mode-age", this.stimuli.participant.age.toString());
       localStorage.setItem("isrc-embedded-mode-grade", this.stimuli.participant.grade.toString());
       localStorage.setItem("isrc-grids-smoothOnly", this.smoothOnly ? "true" : "false");
+      localStorage.setItem("isrc-grids-youngKidsVersion", this.youngKidsVersion ? "true" : "false");
    
       // initialize stimuli
       this.stimuli.initializeConditions();
