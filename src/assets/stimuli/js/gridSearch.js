@@ -860,8 +860,7 @@ function nexttrial() {
 
     // Empty stars level counter
     document.getElementById('currentLevelStars').style.width = `0%`;
-    
-    //if out of trials go to next page
+
   }
 
   // If remaining trials < 0 --> game ended
