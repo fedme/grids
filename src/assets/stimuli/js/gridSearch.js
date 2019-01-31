@@ -432,9 +432,16 @@ function onCellTapped(cell) {
   change('scoretotal', "Punktzahl: " + scoretotal[trialCounter]);
 
   // update urn background
-  var urn = document.getElementById('urn');
-  var bgPerc = Math.floor(overallScore / overallMax * 100);
-  urn.style.background = `linear-gradient(to top, #e7bd00 ${bgPerc}%, #ffffff ${bgPerc}%)`;
+  // var urn = document.getElementById('urn');
+  // var bgPerc = Math.floor(overallScore / overallMax * 100);
+  // urn.style.background = `linear-gradient(to top, #e7bd00 ${bgPerc}%, #ffffff ${bgPerc}%)`;
+
+  // Update colored stars in current level starblock
+  // starblocks = document.getElementsByClassName('star-ratings-css-top');
+  // if (starblocks.length > 0)
+  //   starblocks[0].style.width = `${roundScore}%`;
+
+  document.getElementById('currentLevelStars').style.width = `${roundScore}%`;
 
   
   // CASE: first (demo) trial
@@ -454,6 +461,14 @@ function onCellTapped(cell) {
   if (clicks == 0) {
     starRating = starsEarned(roundScore);
     starArray[trialCounter] = parseFloat(starRating); //add to array
+
+    // Empty stars level counter
+    //document.getElementById('currentLevelStars').style.width = `0%`;
+    // starblocks = document.getElementsByClassName('star-ratings-css-top');
+    // if (starblocks.length > 0)
+    //   starblocks[0].style.width = '0%';
+
+
     //move to next page
     clickStart('page5', 'page5finished');
     //update trials remaining
@@ -464,6 +479,8 @@ function onCellTapped(cell) {
       document.getElementById("bonusSidebarInstructions").style.display = "block";
       document.getElementById("sidebarContent").style.display = "none";
     }
+
+   
     
 
     //calculate stars to award
@@ -840,6 +857,10 @@ function nexttrial() {
     //update current reward, number of trials and clicks
     change("remaining1", "Verbleibende Spielfelder: <b>" + (trials + 1) + "</b>");
     change("remaining2", "Verbleibende Klicks: <b>" + clicks + "</b>");
+
+    // Empty stars level counter
+    document.getElementById('currentLevelStars').style.width = `0%`;
+    
     //if out of trials go to next page
   }
 
