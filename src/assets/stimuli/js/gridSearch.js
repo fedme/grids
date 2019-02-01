@@ -484,8 +484,18 @@ function onCellTapped(cell) {
     
 
     //calculate stars to award
-    starDiv = "<div class=\"star-ratings-css\"><div class=\"star-ratings-css-top\" style=\"width: " + roundScore + "%\"></div><div class=\"star-ratings-css-bottom\"></div><br><br>"
-    addToDiv("stars", starDiv)
+    
+    
+    if (youngKidsVersion) {
+      starDiv = "<div class=\"star-ratings-css\"><div class=\"star-ratings-css-top\" style=\"width: " + roundScore + "%\"></div><div class=\"star-ratings-css-bottom\"></div></div>";
+      appendToDiv("stars", starDiv)
+    }
+    else {
+      starDiv = "<div class=\"star-ratings-css\"><div class=\"star-ratings-css-top\" style=\"width: " + roundScore + "%\"></div><div class=\"star-ratings-css-bottom\"></div><br><br>";
+      addToDiv("stars", starDiv)
+    }
+    
+
     //Compile completion text
     var remainingMsg = (trials - 1) == 1 ? "weiteres Feld." : "weitere Felder.";
     completionDiv = "<br><br><br><br><h1 class=\"text-xl\">Du hast dieses Feld erkundet und hast <b>" 
@@ -929,6 +939,11 @@ function change(x, y) {
 function addToDiv(x, y) {
   document.getElementById(x).innerHTML += y;
 }
+
+function appendToDiv(x, y) {
+  document.getElementById(x).innerHTML = y + document.getElementById(x).innerHTML;
+}
+
 
 //Function to randomly shuffle an array:
 function shuffle(o) { //v1.0
