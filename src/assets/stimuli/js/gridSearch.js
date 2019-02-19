@@ -100,9 +100,13 @@ function assignScenarioSkipRegistration() {
   age = localStorage.getItem("isrc-embedded-mode-age");
   grade = localStorage.getItem("isrc-embedded-mode-grade");
 
+
+  // Add class to body depending on app version
+  document.body.classList.add("v-normal");
   youngKidsVersion = localStorage.getItem("isrc-grids-youngKidsVersion") == "true";
   if (youngKidsVersion) {
-    document.body.classList.add("youngKidsVersion");
+    document.body.classList.remove("v-normal");
+    document.body.classList.add("v-young");
   }
 
   var counter = 0;

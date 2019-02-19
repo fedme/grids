@@ -112,13 +112,15 @@
             <div class="radio">
                 <label class="text-ml">
                 <input type="radio" name="q1" id="q1b" value="option2">
-                 &nbsp;  &nbsp; so viele Punkte wie möglich sammeln
+                <span class="v-normal">&nbsp;  &nbsp; so viele Punkte wie möglich sammeln</span>
+                <span class="v-young">&nbsp;  &nbsp; so viele dunkle Kästchen wie möglich sammeln</span>
               </label>
             </div>
             <div class="radio">
                 <label class="text-ml">
                 <input type="radio" name="q1" id="q1d" value="option4">
-                 &nbsp;  &nbsp; das Kästchen mit den meisten Punkten finden
+                <span class="v-normal">&nbsp;  &nbsp; das Kästchen mit den meisten Punkten finden</span>
+                <span class="v-young">&nbsp;  &nbsp; das dunkelste Kästchen zu finden</span>
               </label>
             </div>
             <div class="radio">
@@ -164,20 +166,22 @@
             <div class="radio">
                 <label class="text-ml">
                 <input type="radio" name="q3" id="q3b" value="option2">
-                 &nbsp;  &nbsp; Hohe Punktzahlen sind <strong>niemals</strong> nebeneinander
+                <span class="v-normal">&nbsp;  &nbsp; Hohe Punktzahlen sind <strong>niemals</strong> nebeneinander</span>
+                <span class="v-young">&nbsp;  &nbsp; Dunkle Kästchen sind <strong>niemals</strong> nebeneinander</span>
               </label>
             </div>
             <div class="radio">
                 <label class="text-ml">
                 <input type="radio" name="q3" id="q3c" value="option3" >
-                 &nbsp;  &nbsp; Hohe Punktzahlen sind <strong>immer</strong> in der gleichen Gegend
+                <span class="v-normal">&nbsp;  &nbsp; Hohe Punktzahlen sind <strong>immer</strong> in der gleichen Gegend</span>
+                <span class="v-young">&nbsp;  &nbsp; Dunkle Kästchen sind <strong>immer</strong> in der gleichen Gegend</span>
               </label>
             </div>
             <div class="radio">
                 <label class="text-ml">
                 <input type="radio" name="q3" id="q3d" value="option3" >
-                 &nbsp;  &nbsp; Hohe Punktzahlen sind <strong>häufig</strong> in der selben Gegend
-
+                <span class="v-normal">&nbsp;  &nbsp; Hohe Punktzahlen sind <strong>häufig</strong> in derselben Gegend</span>
+                <span class="v-young">&nbsp;  &nbsp; Dunkle Kästchen sind <strong>häufig</strong> in derselben Gegend</span>
               </label>
             </div><br>
 
@@ -194,10 +198,7 @@
             <h1 class="text-xxl">Wow! Das hast du super gemacht! Du hast alle Fragen richtig beantwortet und kannst nun mit dem Spiel beginnen.</h1>
             <br><br>
 
-
-
             <button class='btn-primary text-xl' type="button" name="button" id="buttonGoToPageFive">Start</button>
-
 
         </div>
 
@@ -216,11 +217,20 @@
             <div id="alertGridDiv" style="display:none">
                 <h2>Bonusrunde!</h2>
                 <p class="text-xl">
-                    Ich werde dir jetzt Fragen zu fünf verschiedenen Kästchen stellen, die du noch nicht aufgedeckt hast. 
-                    Für jedes Kästchen sollst du einschätzen, wie viele Punkte du dafür bekommen würdest, wenn du darauf klickst. 
-                    Danach kannst du eines von den fünf Kästchen aufdecken und das Spiel geht normal weiter.
-                    <br><br>
-                    Danach kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    <span class="v-normal">
+                        Ich werde dir jetzt Fragen zu fünf verschiedenen Kästchen stellen, die du noch nicht aufgedeckt hast. 
+                        Für jedes Kästchen sollst du einschätzen, wie viele Punkte du dafür bekommen würdest, wenn du darauf klickst. 
+                        Danach kannst du eines von den fünf Kästchen aufdecken und das Spiel geht normal weiter.
+                        <br><br>
+                        Danach kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    </span>
+                    <span class="v-young">
+                        Ich werde dir jetzt Fragen zu fünf verschiedenen Kästchen stellen, die du noch nicht aufgedeckt hast. 
+                        Für jedes Kästchen sollst du einschätzen, wie dunkel das Kästchen sein könnte, wenn du darauf klickst. 
+                        Danach kannst du eines von den fünf Kästchen aufdecken und das Spiel geht normal weiter.
+                        <br><br>
+                        Danach kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    </span>
                     
                 </p><br><br>
                 <button class='btn-primary text-xl' type="button" name="button" id="buttonGoToBonusLevel">Weiter</button>
@@ -229,7 +239,9 @@
 
 
             <div id="progress">
-                <font class="text-xl" color="green"><b><div id="scoretotal"></div></b></font>
+                <font class="text-xl" color="green"><b>
+                    <div id="scoretotal" class="v-normal"></div>
+                </b></font>
                 <div class="text-xl" id="remaining1">Verbleibende Spielfelder: <b>11</b></div>
                 <div class="text-xl" id="remaining2">Verbleibende Klicks: <b>25</b></div>
 
@@ -237,32 +249,61 @@
                     <br>
 
                     <p id="sidebarInstructions-1" class="text-l">
-                        In diesem Spiel zeige ich dir 6 solche Spielfelder. <br><br> 
-                        Am Anfang von jedem Spielfeld ist ein Kästchen bereits aufgedeckt. <br><br> 
-                        Wenn du auf ein Kästchen klickst, wird dir eine Punktzahl für dieses Kästchen angezeigt. <br><br> 
-                        In jeder Runde hast du 25 Klicks um so viele Punkte wie möglich zu sammeln!
+                        <span class="v-normal">
+                            In diesem Spiel zeige ich dir 6 solche Spielfelder. <br><br> 
+                            Am Anfang von jedem Spielfeld ist ein Kästchen bereits aufgedeckt. <br><br> 
+                            Wenn du auf ein Kästchen klickst, wird dir eine Punktzahl für dieses Kästchen angezeigt. <br><br> 
+                            In jeder Runde hast du 25 Klicks um so viele Punkte wie möglich zu sammeln!
+                        </span>
+                        <span class="v-young">
+                            In diesem Spiel zeige ich dir 6 solche Spielfelder. <br><br> 
+                            Am Anfang von jedem Spielfeld ist ein Kästchen bereits aufgedeckt. <br><br> 
+                            Wenn du auf ein Kästchen klickst, wird dir eine Farbe für dieses Kästchen angezeigt. <br><br> 
+                            In jeder Runde hast du 25 Klicks um so viele dunkle Kästchen wie möglich zu sammeln!
+                        </span>
                     </p>
 
                     <p id="sidebarInstructions-2" class="text-m" style="display:none">
-                        Vor jedem Klick musst du dich entscheiden: Entweder deckst du ein neues Kästchen auf oder
-                        du klickst nochmal auf ein bereits aufgedecktes Kästchen. Wenn du ein neues Kästchen
-                        aufdeckst, weißt du noch nicht, wie viele Punkte du bekommst. Aber du kannst neue Kästchen
-                        mit vielen Punkten finden. Wenn du ein Kästchen anklickst, was bereits aufgedeckt ist, kann
-                        sich die Punktzahl leicht verändern, aber wird ungefähr gleichbleiben.
-                        <br><br> 
-                        Außerdem verrate ich dir noch zwei wichtige Tipps: erstens sind die Kästchen zusätzlich
-                        farblich markiert. Je höher die Punktzahl, desto dunkler ist das Kästchen.
-                        Zweitens, in den Spielfeldern tauchen hohe Punktzahlen häufig neben anderen hohen
-                        Punktzahlen auf und niedrige Punktzahlen häufig neben anderen niedrigen Punktzahlen! Die
-                        Punktzahl ist also abhängig davon, wo sich das Kästchen im Feld befindet!
-                           
+                        <span class="v-normal">
+                            Vor jedem Klick musst du dich entscheiden: Entweder deckst du ein neues Kästchen auf oder
+                            du klickst nochmal auf ein bereits aufgedecktes Kästchen. Wenn du ein neues Kästchen
+                            aufdeckst, weißt du noch nicht, wie viele Punkte du bekommst. Aber du kannst neue Kästchen
+                            mit vielen Punkten finden. Wenn du ein Kästchen anklickst, was bereits aufgedeckt ist, kann
+                            sich die Punktzahl leicht verändern, aber wird ungefähr gleichbleiben.
+                            <br><br> 
+                            Außerdem verrate ich dir noch zwei wichtige Tipps: erstens sind die Kästchen zusätzlich
+                            farblich markiert. Je höher die Punktzahl, desto dunkler ist das Kästchen.
+                            Zweitens, in den Spielfeldern tauchen hohe Punktzahlen häufig neben anderen hohen
+                            Punktzahlen auf und niedrige Punktzahlen häufig neben anderen niedrigen Punktzahlen! Die
+                            Punktzahl ist also abhängig davon, wo sich das Kästchen im Feld befindet!
+                        </span>
+                        <span class="v-young">
+                            Vor jedem Klick musst du dich entscheiden: Entweder deckst du ein neues Kästchen auf oder du 
+                            klickst nochmal auf ein bereits aufgedecktes Kästchen. Wenn du ein neues Kästchen aufdeckst, 
+                            weißt du noch nicht, ob du ein dunkles Kästchen bekommst. Aber du kannst neue dunkle Kästchen finden.
+                            Wenn du ein Kästchen anklickst, was bereits aufgedeckt ist, kann sich die Farbe des Kästchens leicht verändern, 
+                            aber wird ungefähr gleichbleiben.
+                            <br><br> 
+                            Außerdem verrate ich dir noch einen wichtigen Tipp: in den Spielfeldern tauchen dunkle Kästchen häufig neben dunklen
+                            Kästchen auf und helle Kästchen häufig neben anderen hellen Kästchen! Die Farbe des Kästchens ist also abhängig davon,
+                            wo sich das Kästchen im Feld befindet!
+                        </span>
                     </p> 
 
                     <p id="sidebarInstructions-3" class="text-l" style="display:none">
+                        <span class="v-normal">
                             <b>Super!</b><br> Das hast du schon sehr gut gemacht! In den nächsten Runden kannst du auf jedem Spielfeld bis 
                             zu 5 Sterne sammeln. Je mehr Punkte du sammelst, desto mehr Sterne bekommst du.
                             <br><br>
                             <b>Hast du alles verstanden?</b>  
+                        </span>
+                        <span class="v-young">
+                            <b>Super!</b><br>Das hast du schon sehr gut gemacht!
+                            In den nächsten Runden kannst du auf jedem Spielfeld bis zu 5 Sterne sammeln.  
+                            Je mehr dunkle Kästchen du sammelst, desto mehr Sterne bekommst du.
+                            <br><br>
+                            <b>Hast du alles verstanden?</b>  
+                        </span>
                     </p>
 
                     <br>
@@ -291,16 +332,29 @@
                 <br><br><br>
                 <div class="text-l" id="bonusSidebarInstructions" style="display:none; padding:5px; border: 3px dashed orange;">
                     <h2>Bonusrunde!</h2>
-                    In dieser Bonusrunde kannst du erstmal nur 15 mal klicken, um wie gewohnt 
-                    so viele Punkte wie möglich zu sammeln.
-                    <br><br>
-                    Danach werde ich dir einige Fragen stellen und dann kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    <span class="v-normal">
+                        In dieser Bonusrunde kannst du erstmal nur 15-mal klicken, um wie gewohnt 
+                        so viele Punkte wie möglich zu sammeln.
+                        <br><br>
+                        Danach werde ich dir einige Fragen stellen und dann kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    </span>
+                    <span class="v-young">
+                        In dieser Bonusrunde kannst du erstmal nur 15-mal klicken, um wie gewohnt so viele dunkle Kästchen wie möglich zu sammeln.
+                        <br><br>
+                        Danach werde ich dir einige Fragen stellen und dann kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    </span>
                 </div>
 
                 <div class="text-l" id="bonusSidebarInstructions2" style="display:none; padding:5px; border: 3px dashed orange;">
                     <h2>Bonusrunde!</h2>
-                    Jetzt kannst du diese Runde wie gewohnt zu Ende spielen. Denk daran, 
-                    du möchtest so viele Punkte wie möglich sammeln!
+                    <span class="v-normal">
+                        Jetzt kannst du diese Runde wie gewohnt zu Ende spielen. Denk daran, 
+                        du möchtest so viele Punkte wie möglich sammeln!
+                    </span>
+                    <span class="v-young">
+                        Jetzt kannst du diese Runde wie gewohnt zu Ende spielen. Denk daran, 
+                        du möchtest so viele dunkle Kästchen wie möglich sammeln!
+                    </span>
                 </div>
 
             </div>
@@ -313,13 +367,15 @@
                     <p class="text-l">Verbleibende Kästchen: <span id="bonusRemainingCounter">5</span></p>
                     <br>
                     <p class="text-xl">
-                        Wie viele Punkte bekommst du wenn du hier klickst? Was glaubst du?
+                        <span class="v-normal">Wie viele Punkte bekommst du wenn du hier klickst? Was glaubst du?</span>
+                        <span class="v-young">Wie dunkel ist das Kästchen wenn du hier klickst? Was glaubst du?</span>
                     </p>
 
                     <input id="valueSlider" type="range" min="0" max="50" step="1" oninput="onValueSliderChange(this.value)" onchange="onValueSliderChange(this.value)">
                     <div class="text-l">
-                        wenige
-                        <span class="spacer" style="width: 211px; display: inline-block;"></span> viele
+                        <span class="v-normal">wenige</span><span class="v-young">hell</span>
+                        <span class="spacer" style="width: 211px; display: inline-block;"></span> 
+                        <span class="v-normal">viele</span><span class="v-young">dunkel</span>
                     </div>
 
 
@@ -364,12 +420,23 @@
 
             <div class="text-l" id="bonusIntroInstructions" style="display:none; padding:5px; border: 3px dashed orange;">
                     <h2>Bonusrunde!</h2>
-                    In dieser Bonusrunde kannst du erstmal nur 15 mal klicken, um wie gewohnt so viele Punkte wie 
-                    möglich zu sammeln. Nachdem du 15-mal geklickt hast, werde ich dir fünf noch nicht aufgedeckte Kästchen 
-                    zeigen. Für jedes dieser Kästchen sollst du schätzen, wie viele Punkte du bekommen würdest, wenn du es 
-                    anklickst. Schau, ob du alle richtig einschätzen kannst!
-                    <br><br>
-                    Danach werde ich dir einige Fragen stellen und dann kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+
+                    <span class="v-normal">
+                        In dieser Bonusrunde kannst du erstmal nur 15-mal klicken, um wie gewohnt so viele Punkte wie 
+                        möglich zu sammeln. Nachdem du 15-mal geklickt hast, werde ich dir fünf noch nicht aufgedeckte Kästchen 
+                        zeigen. Für jedes dieser Kästchen sollst du schätzen, wie viele Punkte du bekommen würdest, wenn du es 
+                        anklickst. Schau, ob du alle richtig einschätzen kannst!
+                        <br><br>
+                        Danach werde ich dir einige Fragen stellen und dann kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    </span>
+                    <span class="v-young">
+                        In dieser Bonusrunde kannst du erstmal nur 15-mal klicken, um wie gewohnt so viele dunkle Kästchen wie 
+                        möglich zu sammeln. Nachdem du 15-mal geklickt hast, werde ich dir fünf noch nicht aufgedeckte Kästchen zeigen. 
+                        Für jedes dieser Kästchen sollst du schätzen, dunkel das Kästchen sein könnte, wenn du es anklickst. Schau, ob du 
+                        alle richtig einschätzen kannst!
+                        <br><br>
+                        Danach werde ich dir einige Fragen stellen und dann kannst du wie gewohnt weiterspielen, bis alle 25 Klicks aufgebraucht sind.
+                    </span>
                 </div>
     
                 <br><br>

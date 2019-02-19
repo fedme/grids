@@ -43,24 +43,38 @@
 /* 
 *   YOUNG KIDS VERSION
 */
-body.youngKidsVersion #grid td {
-  color: transparent !important;
-}
 
-body.youngKidsVersion #stars {
-  /*display: none !important;*/
-}
-
-body:not(.youngKidsVersion) #starUrn {
+/* Show/hide normal or young version instructions */
+body.v-young .v-normal {
   display: none !important;
 }
 
-body.youngKidsVersion .highlight {
+body:not(.v-young) .v-young {
+  display: none !important;
+}
+
+
+
+
+
+body.v-young #grid td {
+  color: transparent !important;
+}
+
+body.v-young #stars {
+  /*display: none !important;*/
+}
+
+body:not(.v-young) #starUrn {
+  display: none !important;
+}
+
+body.v-young .highlight {
   color: transparent !important;
   border-color: black;
 }
 
-body.youngKidsVersion #starUrn {
+body.v-young #starUrn {
   padding-top: 7px;
   padding-bottom: 7px;
   border-bottom: 2px solid lightgray;
