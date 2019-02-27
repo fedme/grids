@@ -109,6 +109,31 @@ function assignScenarioSkipRegistration() {
     document.body.classList.add("v-young");
   }
 
+  // Setting app language and translations
+  appLang = 'en';
+  if (localStorage.getItem('lang')) {
+    appLang = localStorage.getItem('lang');
+  }
+  var xhttp = new XMLHttpRequest();
+  var langDocument = {};
+  xhttp.onreadystatechange = function(){
+    if (this.readyState === 4 && this.status === 200) {
+        langDocument = JSON.parse(this.responseText);
+        processLangDocument();
+    }
+  };
+  xhttp.open("GET", "i18n/" + appLang + ".json", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send();
+  function processLangDocument(){
+    var tags = document.querySelectorAll('p,span,a,label,li,option,h1,h2,h3,h4,h5,h6');
+    Array.from(tags).forEach(function(value, index){
+        var key = value.dataset.lk;
+        if(langDocument[key]) value.innerHTML = langDocument[key];
+    });
+  }
+
+
   var counter = 0;
   if (age <= 9) {
     counter = getCounter("gridsearch-counter-1");
