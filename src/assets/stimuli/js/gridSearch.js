@@ -93,6 +93,9 @@ var condition,
   optimaGuess;
 
 
+// Translations
+var T = {};
+
 
 function assignScenarioSkipRegistration() {
 
@@ -115,10 +118,9 @@ function assignScenarioSkipRegistration() {
     appLang = localStorage.getItem('lang');
   }
   var xhttp = new XMLHttpRequest();
-  var langDocument = {};
   xhttp.onreadystatechange = function(){
     if (this.readyState === 4 && this.status === 200) {
-        langDocument = JSON.parse(this.responseText);
+        T = JSON.parse(this.responseText);
         processLangDocument();
     }
   };
@@ -126,10 +128,10 @@ function assignScenarioSkipRegistration() {
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send();
   function processLangDocument(){
-    var tags = document.querySelectorAll('p,span,a,label,li,option,h1,h2,h3,h4,h5,h6');
+    var tags = document.querySelectorAll('p,span,a,label,li,option,h1,h2,h3,h4,h5,h6,legend');
     Array.from(tags).forEach(function(value, index){
         var key = value.dataset.lk;
-        if(langDocument[key]) value.innerHTML = langDocument[key];
+        if(T[key]) value.innerHTML = T[key];
     });
   }
 
@@ -250,7 +252,7 @@ function instructioncheck() {
   } 
   else {
     //if one or more answers are wrong, raise alert box
-    alert('Du hast einige Fragen falsch beantwortet. Bitte versuche es erneut');
+    alert(T.QUESTIONS_FAIL_ALERT_MSG);
 
     // And reset instructions and interactive demo
     trials = totalTrialsNumber - 1;
@@ -383,7 +385,7 @@ function onButtonInstructionsPressed(evt) {
 
   else if (instructionsCounter == 1) {
     if (clicks > 0) {
-      alert("Bitte benutze alle 25 Klicks um das Spielfeld zu erkunden.");
+      alert(T.CLICKS_ALERT_MSG);
       return;
     }
     gridDeactivated = true;
@@ -437,7 +439,7 @@ function onCellTapped(cell) {
 
   //update number of clicks left
   clicks = clicks - 1;
-  change("remaining2", "Verbleibende Klicks: <b>" + clicks + "</b>");
+  change("remaining2", clicks);
 
   //Update maximum reward found
   if (cell.rescaledValue > gridMax[trialCounter]) {
@@ -458,7 +460,7 @@ function onCellTapped(cell) {
   overallScore += scorecurrent;
   reward = rewardCum(scoretotal);
   roundScore = performanceScore(scoretotal[trialCounter], scale[trialCounter]);
-  change('scoretotal', "Punktzahl: " + scoretotal[trialCounter]);
+  change('scoretotal', scoretotal[trialCounter]);
 
   // update urn background
   // var urn = document.getElementById('urn');
@@ -526,10 +528,12 @@ function onCellTapped(cell) {
     
 
     //Compile completion text
-    var remainingMsg = (trials - 1) == 1 ? "weiteres Feld." : "weitere Felder.";
-    completionDiv = "<br><br><br><br><h1 class=\"text-xl\">Du hast dieses Feld erkundet und hast <b>" 
-      + starRating + " Sterne gesammelt</b>. Du hast noch " + (trials) + " " + remainingMsg + "</h1><br><br><br>" 
-      + starDiv + "<br><br><br>";
+    var remainingMsg = (trials - 1) == 1 ? T.ROUND_COMPLETION_REMAINING_S : T.ROUND_COMPLETION_REMAINING;
+    completionDiv = `
+      <br><br><br><br>
+      <h1 class="text-xl">${T.ROUND_COMPLETION_1} <b> ${starRating} ${T.ROUND_COMPLETION_2}</b>. 
+      ${T.ROUND_COMPLETION_3} ${trials} ${remainingMsg}</h1><br><br><br>
+      ${starDiv}<br><br><br>`;
     change("trials", completionDiv);
   }
 
@@ -553,7 +557,9 @@ function onCellTapped(cell) {
       finalStarCount = totalStarsEarned(starArray);
       //update page6 div
       finalStarDiv = document.getElementById('stars').innerHTML;
-      completionDiv = "<h1 class=\"text-xl\">Wow! Das hast du super gemacht! Und du hast insgesamt ganze <b>" + finalStarCount + " Sterne gesammelt</b>! Vielen Dank fürs Spielen!</b> </h1>" + finalStarDiv + "";
+      completionDiv = `<h1 class="text-xl">
+        ${T.END_TEXT_1} <b>${finalStarCount} ${T.END_TEXT_2}</b>! 
+        ${T.END_TEXT_3}</h1> ${finalStarDiv}`;
       change('thanksforcompleting', completionDiv);
   }
 }
@@ -608,7 +614,7 @@ function saveBonusStep() {
   var rangeValue = range != null ? range.value : null;
 
   if (sicherValue == null || !sliderMoved || !confidenceSliderMoved) {
-    alert("Bitte gib Werte für beide Regler an.");
+    alert(T.BONUS_QUESTIONS_ALERT_MSG);
     return;
   }  
 
@@ -662,7 +668,7 @@ function onBonusCellTapped(cell) {
 
   if (bonusCells.indexOf(cell) == -1 || bonusLevelStep <= 4) return;
 
-  var r = confirm("Bist du dir sicher?");
+  var r = confirm(T.BONUS_CONFIRM_MSG);
   if (!r) return;
 
   document.getElementById("bonusSidebarInstructions").style.display = "none";
@@ -886,7 +892,7 @@ function nexttrial() {
     gridMax[trialCounter] = firstCell.rescaledValue;
     scoretotal[trialCounter] = firstCell.rescaledValue;
     //Update text 
-    change('scoretotal', "Punktzahl: " + scoretotal[trialCounter]);
+    change('scoretotal', scoretotal[trialCounter]);
     //go back to task
     clickStart('page5finished', 'page5');
     //renew investigations
@@ -894,8 +900,8 @@ function nexttrial() {
     //renew investigationIndex
     investigationIndex = 0;
     //update current reward, number of trials and clicks
-    change("remaining1", "Verbleibende Spielfelder: <b>" + (trials + 1) + "</b>");
-    change("remaining2", "Verbleibende Klicks: <b>" + clicks + "</b>");
+    change("remaining1", trials + 1);
+    change("remaining2", clicks);
 
     // Empty stars level counter
     document.getElementById('currentLevelStars').style.width = `0%`;
