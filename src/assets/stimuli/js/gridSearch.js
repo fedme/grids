@@ -441,6 +441,13 @@ function onCellTapped(cell) {
   clicks = clicks - 1;
   change("remaining2", clicks);
 
+  if (youngKidsVersion) {
+    const bgPerc = Math.floor(clicks * 100 / horizon);
+    document.getElementById('clicksProgress').style.background = 
+      `linear-gradient(to right, lightblue ${bgPerc}%, #ffffff ${bgPerc}%)`;
+  }
+  
+
   //Update maximum reward found
   if (cell.rescaledValue > gridMax[trialCounter]) {
     gridMax[trialCounter] = cell.rescaledValue;
@@ -902,6 +909,10 @@ function nexttrial() {
     //update current reward, number of trials and clicks
     change("remaining1", trials + 1);
     change("remaining2", clicks);
+
+    if (youngKidsVersion) {
+      document.getElementById('clicksProgress').style.background = 'lightblue';
+    }
 
     // Empty stars level counter
     document.getElementById('currentLevelStars').style.width = `0%`;
