@@ -24,11 +24,11 @@
     "START": "Start",
 
     "BONUS_TITLE": "Bonus round!",
-    "BONUS_TITLE_2": "Index 9!",
+    "BONUS_TITLE_2": "Bonus round!",
     "BONUS_BODY": "<b>Index 8",
     "BONUS_INTRO": "<b>Index 7",
     "BONUS_INTRO_2": "<b>Index 11",
-    "BONUS_COUNTER": "Remaining Tiles",
+    "BONUS_COUNTER": "<b>Index 9 <br>Remaining Tiles",
     "BONUS_QUESTION_1": "How many points do you think you would get if you clicked on this tile?",
     "BONUS_QUESTION_1_A": "few",
     "BONUS_QUESTION_1_B": "lots",
