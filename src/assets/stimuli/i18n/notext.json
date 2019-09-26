@@ -39,11 +39,11 @@
 
     "COUNTER_FIELDS": "Verbleibende Spielfelder",
     "COUNTER_CLICKS": "Verbleibende Klicks",
-    "INSTRUCTIONS_1": "XXXXXXXXXXXXXXXXXXX In diesem Spiel zeige ich dir 6 solche Spielfelder. <br><br> Am Anfang von jedem Spielfeld ist ein Kästchen bereits aufgedeckt. <br><br>Wenn du auf ein Kästchen klickst, wird dir eine Punktzahl für dieses Kästchen angezeigt. <br><br>In jeder Runde hast du 25 Klicks um so viele Punkte wie möglich zu sammeln!",
-    "INSTRUCTIONS_2": "Vor jedem Klick musst du dich entscheiden: Entweder deckst du ein neues Kästchen auf oder du klickst nochmal auf ein bereits aufgedecktes Kästchen. Wenn du ein neues Kästchen aufdeckst, weißt du noch nicht, wie viele Punkte du bekommst. Aber du kannst neue Kästchen mit vielen Punkten finden. Wenn du ein Kästchen anklickst, was bereits aufgedeckt ist, kann sich die Punktzahl leicht verändern, aber wird ungefähr gleichbleiben.<br><br>Außerdem verrate ich dir noch zwei wichtige Tipps: erstens sind die Kästchen zusätzlich farblich markiert. Je höher die Punktzahl, desto dunkler ist das Kästchen. Zweitens, in den Spielfeldern tauchen hohe Punktzahlen häufig neben anderen hohen Punktzahlen auf und niedrige Punktzahlen häufig neben anderen niedrigen Punktzahlen! Die Punktzahl ist also abhängig davon, wo sich das Kästchen im Feld befindet!",
-    "INSTRUCTIONS_3": "<b>Super!</b><br> Das hast du schon sehr gut gemacht! In den nächsten Runden kannst du auf jedem Spielfeld bis zu 5 Sterne sammeln. Je mehr Punkte du sammelst, desto mehr Sterne bekommst du.<br><br><b>Hast du alles verstanden?</b>",
-    "NEXT": "Weiter",
-    "STARS_COLLECTED": "Sterne gesammelt",
+    "INSTRUCTIONS_1": "Index 1",
+    "INSTRUCTIONS_2": "Index 2",
+    "INSTRUCTIONS_3": "Index 3",
+    "NEXT": "Continue",
+    "STARS_COLLECTED": "Stars collected",
     "CLICKS_ALERT_MSG": "Bitte benutze alle 25 Klicks um das Spielfeld zu erkunden.",
     "QUESTIONS_FAIL_ALERT_MSG": "Du hast einige Fragen falsch beantwortet. Bitte versuche es erneut.",
     "ROUND_COMPLETION_1": "Du hast dieses Feld erkundet und hast",
@@ -57,7 +57,7 @@
     "END_TEXT_2": "Sterne gesammelt",
     "END_TEXT_3": "Vielen Dank fürs Spielen!",
     "READY": "FERTIG",
-    "POINTS_TOTAL": "Punktzahl:",
+    "POINTS_TOTAL": "Points:",
     "REMAINING_ROUNDS": "Verbleibende Spielfelder:",
     "REMAINING_CLICKS": "Verbleibende Klicks:"
 
